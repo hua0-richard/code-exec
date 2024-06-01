@@ -1,0 +1,30 @@
+version: "1"
+services:
+  react:
+    build: ./react
+    ports:
+      - "5173:5173"
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    volumes:
+      - /react/node_modules
+      - ./react:/react
+  fastapi:
+    build: ./fastapi
+    ports:
+      - 80:80
+    volumes:
+      - "./fastapi:/fastapi"
+  database:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  db-data:
