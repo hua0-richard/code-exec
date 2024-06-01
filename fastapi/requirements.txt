@@ -1,2 +1,5 @@
 fastapi
 pydantic
+pandas
+scipy
+RestrictedPython

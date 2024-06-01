@@ -1,8 +1,10 @@
-FROM python:3.9-slim
+FROM python:3.11
 
 WORKDIR /fastapi
 
 COPY ./requirements.txt /fastapi/requirements.txt
+
+RUN apt-get update && apt-get install -y docker.io
 
 RUN pip install --no-cache-dir --upgrade -r /fastapi/requirements.txt
 

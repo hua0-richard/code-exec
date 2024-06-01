@@ -1,7 +1,23 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
+import Editor from "@monaco-editor/react";
+
 export default function App() {
   return (
-    <h1 className="text-6xl font-bold underline">
-      Hello world!!!!222
-    </h1>
-  )
+    <>
+      <button>Button</button>
+      <button>run</button>
+      <div className="p-1">
+        <Editor
+          defaultLanguage="python"
+          theme="vs-dark"
+          height="90vh"
+          width="50vw"
+          defaultValue="# some comment"
+        />
+      </div>
+      <h1 className="text-6xl font-bold underline">Hello world!</h1>
+    </>
+  );
 }
