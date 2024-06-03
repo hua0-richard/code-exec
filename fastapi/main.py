@@ -21,7 +21,7 @@ cursor = connection.cursor()
 cursor.execute("SELECT VERSION();")
 data = cursor.fetchone()
 print("Database version:", data)
-create_table_query = "CREATE TABLE source (code TEXT(65535), output TEXT(65535));"
+create_table_query = "CREATE TABLE IF NOT EXISTS source (code TEXT(65535), output TEXT(65535));"
 cursor.execute(create_table_query)
 connection.commit()
 
